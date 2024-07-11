@@ -1,0 +1,27 @@
+# nfctl init script
+# https://github.com/loveuer/nf/nft/nfctl
+
+# 替换 import
+!replace content
+suffix *.go
+ultone => {{.PROJECT_NAME}}
+EOF
+
+# 替换 go module name
+!replace content
+exact go.mod
+module ultone => module {{.PROJECT_NAME}}
+EOF
+
+# 生成 readme
+!generate
+readme.md
+# {{.PROJECT_NAME}}
+
+### Run
+- `go run . --help`
+- `go run .`
+
+### Build
+- `docker build -t {repo:tag} -f Dockerfile .`
+EOF

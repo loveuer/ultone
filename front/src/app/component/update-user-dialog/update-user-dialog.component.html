@@ -1,0 +1,35 @@
+<h2 mat-dialog-title>修改用户</h2>
+<mat-dialog-content class="update-user-content">
+  <mat-form-field>
+    <mat-label>password</mat-label>
+    <input matInput placeholder="password" type="password" name="password" [formControl]="password">
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>confirm password</mat-label>
+    <input matInput placeholder="confirm password" type="password" name="confirm_password"
+           [formControl]="confirm_password">
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>privilege</mat-label>
+    <mat-select multiple [formControl]="privileges">
+      @for (privilege of user_srv.user().privileges; track privilege) {
+        <mat-option [value]="privilege.value">{{privilege.label}}</mat-option>
+      }
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>status</mat-label>
+    <mat-select [formControl]="status">
+      <mat-option [value]="0">正常</mat-option>
+      <mat-option [value]="1">冻结</mat-option>
+    </mat-select>
+  </mat-form-field>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+  <button mat-raised-button mat-dialog-close>取消</button>
+  <button mat-raised-button color="primary" (click)="update()">修改</button>
+</mat-dialog-actions>

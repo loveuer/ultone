@@ -1,0 +1,40 @@
+<h2 mat-dialog-title>新建用户</h2>
+<mat-dialog-content class="create-user-content">
+  <mat-form-field>
+    <mat-label>username</mat-label>
+    <input matInput placeholder="username" name="username" [(ngModel)]="new_user.username">
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>password</mat-label>
+    <input matInput placeholder="password" type="password" name="password" [(ngModel)]="new_user.password">
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>confirm password</mat-label>
+    <input matInput placeholder="confirm password" type="password" name="confirm_password"
+           [(ngModel)]="new_user.confirm_password">
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>privilege</mat-label>
+    <mat-select multiple [(ngModel)]="new_user.privileges">
+      @for (privilege of user_srv.user().privileges; track privilege) {
+        <mat-option [value]="privilege.value">{{privilege.label}}</mat-option>
+      }
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>status</mat-label>
+    <mat-select [(ngModel)]="new_user.status">
+      <mat-option [value]="0">正常</mat-option>
+      <mat-option [value]="1">冻结</mat-option>
+    </mat-select>
+  </mat-form-field>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+  <button mat-raised-button mat-dialog-close>取消</button>
+  <button mat-raised-button color="primary" (click)="create()">新建</button>
+</mat-dialog-actions>

@@ -1,0 +1,14 @@
+:host {
+  mat-dialog-content.create-user-content{
+    display: flex;
+    flex-direction: column;
+    width: 450px;
+  }
+}
+@media screen and (max-width: 40rem) {
+  :host {
+    mat-dialog-content.create-user-content{
+      width: 100%;
+    }
+  }
+}

@@ -1,0 +1,27 @@
+<div class="title">
+  <mat-toolbar color="primary">
+    <span class="home-button" (click)="router.navigate([''])">Ult App</span>
+    <span class="example-spacer"></span>
+    @if (user_srv.user().username != "") {
+      <button mat-button class="title-menu" aria-label="title menu button" [matMenuTriggerFor]="menu">
+        {{ 'welcome, '+user_srv.user().username?user_srv.user().username:'Plz Login'}}
+      </button>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item (click)="router.navigate(['user'])">用户管理</button>
+        <button mat-menu-item (click)="router.navigate(['log'])">操作日志</button>
+        <button mat-menu-item (click)="user_srv.auth_logout()">退出</button>
+      </mat-menu>
+    }
+  </mat-toolbar>
+</div>
+<div class="content">
+  @if (url != 'login') {
+    <div class="side-container">
+      <ul>
+        <li [class]="url === 'user' ? 'active':''" (click)="router.navigate(['user'])">用户管理</li>
+        <li [class]="url === 'log' ? 'active':''" (click)="router.navigate(['log'])">操作日志</li>
+      </ul>
+    </div>
+  }
+  <router-outlet></router-outlet>
+</div>

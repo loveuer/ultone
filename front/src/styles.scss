@@ -1,0 +1,70 @@
+/* You can add global styles to this file, and also import other style files */
+:root {
+  --primary-color: rgb(63, 81, 181);
+  --my-primary-color: rgb(67, 80, 175);
+  --my-success-text-color: rgb(94, 140, 117);
+  --my-success-backgroud-color: rgb(203, 228, 216);
+  --my-warning-text-color: rgb(132, 113, 56);
+  --my-warning-backgroud-color: rgb(254, 243, 200);
+  --my-error-text-color: rgb(136, 52, 61);
+  --my-error-backgroud-color: rgb(246, 209, 213);
+  --my-info-text-color: rgb(60, 64, 69);
+  --my-info-backgroud-color: rgb(222, 223, 225);
+
+  font-size: 8px;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  max-height: 100vh;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.mat-mdc-snack-bar-container {
+
+  &.info-snackbar {
+    --mdc-snackbar-container-color: var(--my-info-backgroud-color);
+    --mdc-snackbar-supporting-text-color: var(--my-info-text-color);
+  }
+
+  &.success-snackbar {
+    --mdc-snackbar-container-color: var(--my-success-backgroud-color);
+    --mdc-snackbar-supporting-text-color: var(--my-success-text-color);
+  }
+
+  &.warning-snackbar {
+    --mdc-snackbar-container-color: var(--my-warning-backgroud-color);
+    --mdc-snackbar-supporting-text-color: var(--my-warning-text-color);
+  }
+
+  &.error-snackbar {
+    --mdc-snackbar-container-color: var(--my-error-backgroud-color);
+    --mdc-snackbar-supporting-text-color: var(--my-error-text-color);
+  }
+}
+
+.snack-message {
+  display: flex;
+  align-items: center;
+  height: 100%;
+
+  div {
+    height: 100%;
+    display: flex;
+    align-items: center;
+
+    &.snack-message-content {
+      margin-left: 1rem;
+    }
+  }
+}

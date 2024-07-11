@@ -1,0 +1,11 @@
+:host {
+  width: 100%;
+  overflow-x: auto;
+
+  ::ng-deep td>div.nf-op-log>span.nf-op-log-keyword {
+    color: var(--my-primary-color);
+    text-decoration: underline;
+    font-weight: bold;
+    margin: 0 1rem;
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "name": "ult",
+  "listen": {
+    "http": "0.0.0.0:8080"
+  },
+  "db": {
+    "_uri": "postgres::host=pg.dev user=xx_user password=xx_password dbname=xx_database port=5432 sslmode=disable TimeZone=Asia/Shanghai",
+    "uri": "sqlite::db.sqlite3"
+  },
+  "cache": {
+    "uri": "lru::",
+    "_uri": "memory::",
+    "__uri": "redis::u:p@redis.dev:6379"
+  },
+  "es": {
+    "uri": "http://es.dev:9200",
+    "index": {
+      "staff": "some_staff"
+    }
+  },
+  "nebula": {
+    "uri": "nebula.1.dev:9669,nebula.2.dev:9669",
+    "space": "test_space",
+    "username": "admin",
+    "password": "password"
+  }
+}

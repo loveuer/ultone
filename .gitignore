@@ -1,0 +1,7 @@
+.idea
+.vscode
+.DS_Store
+.data
+*.sqlite
+*.sqlite3
+xtest
